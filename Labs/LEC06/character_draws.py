@@ -14,7 +14,7 @@ up = False
 left = False
 Down = False
 
-leftUp = False
+leftUp = True
 rightDown = False
 
 def move_circle():
@@ -63,9 +63,15 @@ def move_rectangle():
 def move_triangle():
     global x, y
     global leftUp, rightDown
-    
+
     clear_canvas()
     character.draw(x,y)
+
+    if leftUp:
+        x = x - 2
+        y = y + 2
+
+    delay(0.01)
     update_canvas()
 
 
@@ -74,7 +80,7 @@ character = load_image('character.png')
 
 while True:
     #move_circle()
-    move_rectangle()
-    #move_triangle()
+    #move_rectangle()
+    move_triangle()
 
 close_canvas()
