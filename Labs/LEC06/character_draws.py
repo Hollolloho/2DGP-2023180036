@@ -38,7 +38,7 @@ def move_circle():
         angle = 0
         circle = False
         rectangle = True
-        
+
     update_canvas()
     delay(0.01)
 
@@ -49,6 +49,10 @@ def move_rectangle():
 
     clear_canvas()
     character.draw(x, y)
+
+    if x == 800 and y == 400:
+        triangle = True
+        rectangle = False
 
     if right:
         x = x + 2
@@ -70,6 +74,7 @@ def move_rectangle():
         if y <= 300:
             Down = False
             right = True
+
 
     update_canvas()
     delay(0.01)
