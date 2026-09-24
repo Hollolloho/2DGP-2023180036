@@ -45,7 +45,10 @@ def move_rectangle():
         if y >= 650:
             up = False
             left = True
-    
+
+    if left:
+        x = x -2
+        
     update_canvas()
     delay(0.01)
 
