@@ -9,6 +9,10 @@ angle = 0
 x = 600
 y = 400
 
+circle = True
+rectangle = False
+triangle = False
+
 right = True
 up = False
 left = False
@@ -89,7 +93,7 @@ def move_triangle():
         if x >= 800:
             triangleRight = False
             leftUp = True
-            
+
     delay(0.01)
     update_canvas()
 
@@ -98,8 +102,8 @@ def move_triangle():
 character = load_image('character.png')
 
 while True:
-    #move_circle()
-    #move_rectangle()
+    move_circle()
+    move_rectangle()
     move_triangle()
 
 close_canvas()
