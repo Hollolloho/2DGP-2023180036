@@ -2,6 +2,8 @@
 
 from pico2d import *
 
+open_canvas(1200, 800)
+
 def move_circle():
     print("CIRCLE")
     pass
@@ -18,3 +20,4 @@ while True:
     pass
 
 
+close_canvas()
