@@ -79,6 +79,10 @@ def move_triangle():
         x = x - 2
         y = y - 2
 
+        if y <= 300:
+            leftDown = False
+            triangleRight = True
+
     delay(0.01)
     update_canvas()
 
