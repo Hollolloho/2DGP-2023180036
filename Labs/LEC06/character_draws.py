@@ -14,8 +14,13 @@ def move_circle():
     clear_canvas()
     character.draw(x, y)
 
-    delay(0.01)
+    angle = angle + 1
+
+    x = 600 + 200 * cos(radians(angle))
+    y = 400 + 200 * sin(radians(angle))
+
     update_canvas()
+    delay(0.01)
 
 def move_rectangle():
     clear_canvas()
