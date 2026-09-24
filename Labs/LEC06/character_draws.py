@@ -16,6 +16,7 @@ Down = False
 
 leftUp = True
 leftDown = False
+triangleRight = False
 
 def move_circle():
     global angle, x, y
@@ -62,7 +63,7 @@ def move_rectangle():
 
 def move_triangle():
     global x, y
-    global leftUp, leftDown
+    global leftUp, leftDown, triangleRight
 
     clear_canvas()
     character.draw(x,y)
