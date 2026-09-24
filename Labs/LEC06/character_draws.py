@@ -14,6 +14,9 @@ up = False
 left = False
 Down = False
 
+leftUp = False
+rightDown = False
+
 def move_circle():
     global angle, x, y
     clear_canvas()
@@ -39,33 +42,31 @@ def move_rectangle():
         if x >= 800:
             right = False
             up = True  
-
     if up:
         y = y + 2
         if y >= 600:
             up = False
             left = True
-
     if left:
         x = x -2
         if x <= 400:
             left = False
             Down = True
-
     if Down:
         y = y - 2
         if y <= 300:
             Down = False
             right = True
-
     update_canvas()
     delay(0.01)
 
 def move_triangle():
+    global x, y
+    global leftUp, rightDown
+    
     clear_canvas()
-    character.draw(600, 400)
+    character.draw(x,y)
     update_canvas()
-    print("TRIANGLE")
 
 
 
