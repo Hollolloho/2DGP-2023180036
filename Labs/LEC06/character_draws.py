@@ -70,6 +70,10 @@ def move_triangle():
     if leftUp:
         x = x - 2
         y = y + 2
+        if x <= 600:
+            leftUp = False
+            rightDown = True
+    
 
     delay(0.01)
     update_canvas()
