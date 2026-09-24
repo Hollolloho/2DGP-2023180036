@@ -52,6 +52,8 @@ def move_rectangle():
             left = False
             Down = True
 
+    if Down:
+        y = y - 2
     update_canvas()
     delay(0.01)
 
