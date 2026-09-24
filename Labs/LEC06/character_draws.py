@@ -5,16 +5,17 @@ from math import *
 
 open_canvas(1200, 800)
 
-character = load_image('character.png')
+angle = 0
+x = 600
+y = 400
 
 def move_circle():
+    global angle, x, y
     clear_canvas()
-    character.draw(600, 400)
-
-
+    character.draw(x, y)
+    
+    delay(0.01)
     update_canvas()
-    print("CIRCLE")
-    pass
 
 def move_rectangle():
     clear_canvas()
@@ -30,9 +31,13 @@ def move_triangle():
     print("TRIANGLE")
     pass   
 
+
+
+character = load_image('character.png')
+
 while True:
-    move_circle()
-    move_rectangle()
-    move_triangle()
+    move_circle(angle, x, y)
+    #move_rectangle()
+    #move_triangle()
 
 close_canvas()
