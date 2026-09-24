@@ -75,7 +75,6 @@ def move_rectangle():
             Down = False
             right = True
 
-
     update_canvas()
     delay(0.01)
 
@@ -90,6 +89,7 @@ def move_triangle():
     if leftUp:
         x = x - 2
         y = y + 2
+
         if y >= 600:
             leftUp = False
             leftDown = True
@@ -98,7 +98,7 @@ def move_triangle():
         x = x - 2
         y = y - 2
 
-        if y <= 300:
+        if y <= 400:
             leftDown = False
             triangleRight = True
 
