@@ -9,6 +9,11 @@ angle = 0
 x = 600
 y = 400
 
+right = True
+up = False
+left = False
+Down = False
+
 def move_circle():
     global angle, x, y
     clear_canvas()
@@ -26,7 +31,9 @@ def move_rectangle():
     global x, y
     clear_canvas()
     character.draw(x, y)
+
     x = x + 1
+
     update_canvas()
     delay(0.01)
 
@@ -35,7 +42,6 @@ def move_triangle():
     character.draw(600, 400)
     update_canvas()
     print("TRIANGLE")
-    pass   
 
 
 
