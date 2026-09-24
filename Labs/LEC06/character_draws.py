@@ -23,8 +23,9 @@ def move_circle():
     delay(0.01)
 
 def move_rectangle():
+    global x, y
     clear_canvas()
-    character.draw(600, 400)
+    character.draw(x, y)
     update_canvas()
     print("RECTANGLE")
     pass
@@ -41,8 +42,8 @@ def move_triangle():
 character = load_image('character.png')
 
 while True:
-    move_circle()
-    #move_rectangle()
+    #move_circle()
+    move_rectangle()
     #move_triangle()
 
 close_canvas()
