@@ -29,10 +29,17 @@ def move_circle():
 
 def move_rectangle():
     global x, y
+    global right, up, left, Down
+    
     clear_canvas()
     character.draw(x, y)
 
-    x = x + 1
+    if right:
+        x = x + 2
+        if x >= 800:
+            right = False
+            up = True  
+    
 
     update_canvas()
     delay(0.01)
