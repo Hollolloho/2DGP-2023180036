@@ -107,6 +107,8 @@ def move_triangle():
         if x >= 800:
             triangleRight = False
             leftUp = True
+            triangle = False
+            circle = True
 
     delay(0.01)
     update_canvas()
