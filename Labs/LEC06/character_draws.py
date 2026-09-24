@@ -104,8 +104,9 @@ character = load_image('character.png')
 while True:
     if circle:
         move_circle()
-    
-    move_rectangle()
-    move_triangle()
+    if rectangle:
+        move_rectangle()
+    if triangle:
+        move_triangle()
 
 close_canvas()
