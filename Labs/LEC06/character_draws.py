@@ -102,7 +102,9 @@ def move_triangle():
 character = load_image('character.png')
 
 while True:
-    move_circle()
+    if circle:
+        move_circle()
+    
     move_rectangle()
     move_triangle()
 
