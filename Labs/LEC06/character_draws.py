@@ -26,9 +26,9 @@ def move_rectangle():
     global x, y
     clear_canvas()
     character.draw(x, y)
+    x = x + 1
     update_canvas()
-    print("RECTANGLE")
-    pass
+    delay(0.01)
 
 def move_triangle():
     clear_canvas()
