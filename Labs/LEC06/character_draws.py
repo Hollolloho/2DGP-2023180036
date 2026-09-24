@@ -13,7 +13,7 @@ def move_circle():
     global angle, x, y
     clear_canvas()
     character.draw(x, y)
-    
+
     delay(0.01)
     update_canvas()
 
@@ -36,7 +36,7 @@ def move_triangle():
 character = load_image('character.png')
 
 while True:
-    move_circle(angle, x, y)
+    move_circle()
     #move_rectangle()
     #move_triangle()
 
