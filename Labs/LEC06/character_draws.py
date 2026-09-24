@@ -24,6 +24,8 @@ triangleRight = False
 
 def move_circle():
     global angle, x, y
+    global circle, rectangle
+    
     clear_canvas()
     character.draw(x, y)
 
@@ -32,12 +34,18 @@ def move_circle():
     x = 600 + 200 * cos(radians(angle))
     y = 400 + 200 * sin(radians(angle))
 
+    if(angle >= 360):
+        angle = 0
+        circle = False
+        rectangle = True
+        
     update_canvas()
     delay(0.01)
 
 def move_rectangle():
     global x, y
     global right, up, left, Down
+    global rectangle, triangle
 
     clear_canvas()
     character.draw(x, y)
@@ -69,6 +77,7 @@ def move_rectangle():
 def move_triangle():
     global x, y
     global leftUp, leftDown, triangleRight
+    global triangle, circle
 
     clear_canvas()
     character.draw(x,y)
