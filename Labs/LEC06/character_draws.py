@@ -30,7 +30,7 @@ def move_circle():
 def move_rectangle():
     global x, y
     global right, up, left, Down
-    
+
     clear_canvas()
     character.draw(x, y)
 
@@ -39,8 +39,13 @@ def move_rectangle():
         if x >= 800:
             right = False
             up = True  
-    
 
+    if up:
+        y = y + 2
+        if y >= 650:
+            up = False
+            left = True
+    
     update_canvas()
     delay(0.01)
 
