@@ -26,8 +26,8 @@ def move_right():
         draw_character(750, y)
 
 def move_bottom():
-    print("bottom")
-    pass
+    for x in range(750, 50, -5):
+        draw_character(x, 50)
 
 def move_left():
     print("left")
@@ -58,9 +58,9 @@ def draw_triangle():
 character = load_image('character.png')
 
 while True:
-    draw_circle()
+    #draw_circle()
     draw_rectangle()
-    draw_triangle()
+    #draw_triangle()
 
 close_canvas()
 
