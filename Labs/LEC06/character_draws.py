@@ -34,25 +34,20 @@ def move_left():
         draw_character(50, y)
 
 def move_triangle_top():
-    print("move_triangle_top")
     for x in range(50, 600, 5):
         y = 50 + (x - 50) * (500 / 550)
         draw_character(x, y)
         
 def move_triangle_right():
-    print("move_triangle_right")
     for x in range(600, 1150, 5):
         y = 550 - (x - 600) * (500 / 550)
         draw_character(x, y)
 
 def move_triangle_bottom():
-    print("move_triangle_bottom")
-    for x  in range(1150, 50, -5):
+    for x in range(1150, 50, -5):
         draw_character(x, 50)
 
 def draw_rectangle():
-    print("RECTANGLE")
-
     clear_canvas()
 
     move_top()
@@ -64,22 +59,17 @@ def draw_rectangle():
     pass
 
 def draw_triangle():
-    print("TRIANGLE")
-
     move_triangle_top()
     move_triangle_right()
     move_triangle_bottom()
-
-    pass   
 
 
 
 character = load_image('character.png')
 
 while True:
-    #draw_circle()
-    #draw_rectangle()
+    draw_circle()
+    draw_rectangle()
     draw_triangle()
 
 close_canvas()
-
