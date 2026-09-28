@@ -9,6 +9,12 @@ angle = 0
 x = 600
 y = 400
 
+def draw_character(x,y):
+    clear_canvas()
+    character.draw(x, y)
+    update_canvas()
+    delay(0.05)
+
 
 def move_top():
     print("top")
