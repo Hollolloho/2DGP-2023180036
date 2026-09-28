@@ -34,11 +34,11 @@ def move_left():
         draw_character(50, y)
 
 def move_triangle_top():
-    pass
+    print("move_triangle_top")
 def move_triangle_right():
-    pass
+    print("move_triangle_right")
 def move_triangle_bottom():
-    pass
+    print("move_triangle_bottom")
 
 def draw_rectangle():
     print("RECTANGLE")
@@ -68,8 +68,8 @@ character = load_image('character.png')
 
 while True:
     #draw_circle()
-    draw_rectangle()
-    #draw_triangle()
+    #draw_rectangle()
+    draw_triangle()
 
 close_canvas()
 
