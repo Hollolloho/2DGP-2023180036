@@ -17,11 +17,10 @@ def draw_character(x,y):
 
 
 def move_top():
-    print("top")
-    pass
+    for x in range(50, 750, 5):
+        draw_character(x, 550)
 
 def move_right():
-    print("right")
     pass
 
 def move_bottom():
@@ -47,6 +46,8 @@ def draw_circle():
     delay(0.01)
 
 def draw_rectangle():
+    print("RECTANGLE")
+
     clear_canvas()
 
     move_top()
@@ -55,7 +56,6 @@ def draw_rectangle():
     move_left()
 
     update_canvas()
-    print("RECTANGLE")
     pass
 
 def draw_triangle():
