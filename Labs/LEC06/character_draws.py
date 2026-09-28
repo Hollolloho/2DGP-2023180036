@@ -20,20 +20,21 @@ def draw_circle():
 
 
 def move_top():
-    for x in range(50, 750, 5):
+    for x in range(50, 750 + 1, 5):
         draw_character(x, 550)
 
 def move_right():
-    for y in range(550, 50, -5):
+    for y in range(550, 50 - 1, -5):
         draw_character(750, y)
 
 def move_bottom():
-    for x in range(750, 50, -5):
+    for x in range(750, 50 - 1, -5):
         draw_character(x, 50)
 
 def move_left():
-    for y in range(50, 550, 5):
+    for y in range(50, 550 + 1, 5):
         draw_character(50, y)
+
 
 def move_triangle_top():
     for x in range(50, 600, 5):
