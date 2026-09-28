@@ -33,6 +33,13 @@ def move_left():
     for y in range(50, 550, 5):
         draw_character(50, y)
 
+def move_triangle_top():
+    pass
+def move_triangle_right():
+    pass
+def move_triangle_bottom():
+    pass
+
 def draw_rectangle():
     print("RECTANGLE")
 
@@ -47,10 +54,12 @@ def draw_rectangle():
     pass
 
 def draw_triangle():
-    clear_canvas()
-    character.draw(600, 400)
-    update_canvas()
     print("TRIANGLE")
+
+    move_triangle_top()
+    move_triangle_right()
+    move_triangle_bottom()
+
     pass   
 
 
