@@ -13,10 +13,11 @@ def draw_character(x, y):
 
 
 def draw_circle():
-    for angle in range(0, 360, 5):
+    for angle in range(0, 360, 2):
         x = 600 + 200 * cos(radians(angle))
         y = 400 + 200 * sin(radians(angle))
         draw_character(x, y)
+
 
 def move_top():
     for x in range(50, 750, 5):
