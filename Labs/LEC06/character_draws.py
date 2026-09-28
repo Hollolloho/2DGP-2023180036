@@ -9,7 +9,25 @@ angle = 0
 x = 600
 y = 400
 
-def move_circle():
+
+def move_top():
+    print("top")
+    pass
+
+def move_right():
+    print("right")
+    pass
+
+def move_bottom():
+    print("bottom")
+    pass
+
+def move_left():
+    print("left")
+    pass
+
+
+def draw_circle():
     global angle, x, y
     clear_canvas()
     character.draw(x, y)
@@ -22,14 +40,19 @@ def move_circle():
     update_canvas()
     delay(0.01)
 
-def move_rectangle():
+def draw_rectangle():
     clear_canvas()
-    character.draw(600, 400)
+
+    move_top()
+    move_right()
+    move_bottom()
+    move_left()
+
     update_canvas()
     print("RECTANGLE")
     pass
 
-def move_triangle():
+def draw_triangle():
     clear_canvas()
     character.draw(600, 400)
     update_canvas()
@@ -41,8 +64,8 @@ def move_triangle():
 character = load_image('character.png')
 
 while True:
-    move_circle()
-    #move_rectangle()
-    #move_triangle()
+    draw_circle()
+    draw_rectangle()
+    draw_triangle()
 
 close_canvas()
