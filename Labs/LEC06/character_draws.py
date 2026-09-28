@@ -48,15 +48,11 @@ def move_triangle_bottom():
         draw_character(x, 50)
 
 def draw_rectangle():
-    clear_canvas()
-
     move_top()
     move_right()
     move_bottom()
     move_left()
 
-    update_canvas()
-    pass
 
 def draw_triangle():
     move_triangle_top()
