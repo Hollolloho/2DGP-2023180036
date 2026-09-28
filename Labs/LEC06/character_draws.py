@@ -47,6 +47,8 @@ def move_triangle_right():
 
 def move_triangle_bottom():
     print("move_triangle_bottom")
+    for x  in range(1150, 50, -5):
+        draw_character(x, 50)
 
 def draw_rectangle():
     print("RECTANGLE")
