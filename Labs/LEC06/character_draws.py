@@ -37,18 +37,19 @@ def move_left():
 
 
 def move_triangle_top():
-    for x in range(50, 600, 5):
+    for x in range(50, 600 + 1, 5):
         y = 50 + (x - 50) * (500 / 550)
         draw_character(x, y)
         
 def move_triangle_right():
-    for x in range(600, 1150, 5):
+    for x in range(600, 1150 + 1, 5):
         y = 550 - (x - 600) * (500 / 550)
         draw_character(x, y)
 
 def move_triangle_bottom():
-    for x in range(1150, 50, -5):
+    for x in range(1150, 50 - 1, -5):
         draw_character(x, 50)
+
 
 def draw_rectangle():
     move_top()
