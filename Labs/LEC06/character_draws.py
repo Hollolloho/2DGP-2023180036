@@ -41,6 +41,9 @@ def move_triangle_top():
         
 def move_triangle_right():
     print("move_triangle_right")
+    for x in range(600, 1150, 5):
+        y = 550 - (x - 600) * (500 / 550)
+        draw_character(x, y)
 
 def move_triangle_bottom():
     print("move_triangle_bottom")
