@@ -5,11 +5,12 @@ from math import *
 
 open_canvas(1200, 800)
 
-def draw_character(x,y):
+def draw_character(x, y):
     clear_canvas()
     character.draw(x, y)
     update_canvas()
-    delay(0.05)
+    delay(0.01)
+
 
 def draw_circle():
     for angle in range(0, 360, 5):
