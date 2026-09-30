@@ -18,6 +18,20 @@ open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
 # IDLE 대기 스프라이트 시트 로드
 idle_sheet = load_image('_spritesheet_IDLE.png')
 
+# IDLE 대기 프레임 데이터 (10프레임)
+IDLE_FRAMES = [
+    {'left': 2, 'bottom': 0, 'width': 92, 'height': 239, 'offset_x': -1.0},
+    {'left': 100, 'bottom': 0, 'width': 93, 'height': 240, 'offset_x': -0.5},
+    {'left': 198, 'bottom': 0, 'width': 93, 'height': 240, 'offset_x': -0.5},
+    {'left': 296, 'bottom': 0, 'width': 93, 'height': 240, 'offset_x': -0.5},
+    {'left': 394, 'bottom': 0, 'width': 94, 'height': 240, 'offset_x': 0.0},
+    {'left': 492, 'bottom': 0, 'width': 94, 'height': 241, 'offset_x': 0.0},
+    {'left': 590, 'bottom': 0, 'width': 94, 'height': 241, 'offset_x': 0.0},
+    {'left': 688, 'bottom': 0, 'width': 93, 'height': 240, 'offset_x': -0.5},
+    {'left': 786, 'bottom': 0, 'width': 93, 'height': 240, 'offset_x': -0.5},
+    {'left': 884, 'bottom': 0, 'width': 93, 'height': 240, 'offset_x': -0.5}
+]
+
 running = True
 
 def check_events():
