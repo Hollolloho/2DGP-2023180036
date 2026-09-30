@@ -33,6 +33,18 @@ IDLE_FRAMES = [
     {'left': 884, 'bottom': 0, 'width': 93, 'height': 240, 'offset_x': -0.5}
 ]
 
+# WALK 걷기 프레임 데이터 (8프레임)
+WALK_FRAMES = [
+    {'left': 0, 'bottom': 1, 'width': 106, 'height': 239, 'offset_x': -1.5},
+    {'left': 117, 'bottom': 0, 'width': 89, 'height': 242, 'offset_x': -2.0},
+    {'left': 238, 'bottom': 2, 'width': 80, 'height': 241, 'offset_x': 5.5},
+    {'left': 342, 'bottom': 0, 'width': 89, 'height': 244, 'offset_x': 5.0},
+    {'left': 445, 'bottom': 0, 'width': 94, 'height': 244, 'offset_x': 1.5},
+    {'left': 557, 'bottom': 1, 'width': 87, 'height': 243, 'offset_x': 1.0},
+    {'left': 679, 'bottom': 0, 'width': 73, 'height': 241, 'offset_x': 7.0},
+    {'left': 780, 'bottom': 1, 'width': 82, 'height': 238, 'offset_x': 3.5}
+]
+
 running = True
 
 def check_events():
