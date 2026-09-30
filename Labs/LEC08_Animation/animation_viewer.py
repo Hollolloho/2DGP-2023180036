@@ -76,6 +76,20 @@ ATTACK_FRAMES = [
     {'left': 1912, 'bottom': 1, 'width': 112, 'height': 224, 'offset_x': -27.0}
 ]
 
+# JUMP 점프 프레임 데이터 (10프레임)
+JUMP_FRAMES = [
+    {'left': 28, 'bottom': 0, 'width': 92, 'height': 243, 'offset_x': -12.0},
+    {'left': 215, 'bottom': 1, 'width': 76, 'height': 237, 'offset_x': -5.0},
+    {'left': 372, 'bottom': 14, 'width': 128, 'height': 224, 'offset_x': 6.0},
+    {'left': 529, 'bottom': 22, 'width': 155, 'height': 215, 'offset_x': 4.5},
+    {'left': 702, 'bottom': 16, 'width': 151, 'height': 222, 'offset_x': 3.5},
+    {'left': 876, 'bottom': 18, 'width': 144, 'height': 226, 'offset_x': 2.0},
+    {'left': 1049, 'bottom': 17, 'width': 154, 'height': 226, 'offset_x': 8.0},
+    {'left': 1232, 'bottom': 13, 'width': 116, 'height': 233, 'offset_x': 0.0},
+    {'left': 1411, 'bottom': 16, 'width': 105, 'height': 228, 'offset_x': 1.5},
+    {'left': 1588, 'bottom': 18, 'width': 99, 'height': 221, 'offset_x': 3.5}
+]
+
 running = True
 
 def check_events():
@@ -142,5 +156,19 @@ def play_attack():
         attack_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
         update_canvas()
         delay(0.07)
+
+def play_jump():
+    global running
+    for f in JUMP_FRAMES:
+        check_events()
+        if not running:
+            return
+        clear_canvas()
+        draw_x = CENTER_X + int(f['offset_x'] * SCALE)
+        draw_w = int(f['width'] * SCALE)
+        draw_h = int(f['height'] * SCALE)
+        jump_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
+        update_canvas()
+        delay(0.08)
 
 close_canvas()
