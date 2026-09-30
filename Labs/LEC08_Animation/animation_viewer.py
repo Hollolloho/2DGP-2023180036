@@ -46,6 +46,20 @@ WALK_FRAMES = [
     {'left': 780, 'bottom': 1, 'width': 82, 'height': 238, 'offset_x': 3.5}
 ]
 
+# RUN 달리기 프레임 데이터 (10프레임)
+RUN_FRAMES = [
+    {'left': 1, 'bottom': 5, 'width': 197, 'height': 233, 'offset_x': -7.0},
+    {'left': 253, 'bottom': 0, 'width': 118, 'height': 245, 'offset_x': -7.5},
+    {'left': 495, 'bottom': 5, 'width': 77, 'height': 242, 'offset_x': 1.0},
+    {'left': 705, 'bottom': 4, 'width': 95, 'height': 238, 'offset_x': 7.0},
+    {'left': 889, 'bottom': 14, 'width': 144, 'height': 226, 'offset_x': 2.5},
+    {'left': 1094, 'bottom': 34, 'width': 183, 'height': 205, 'offset_x': 14.0},
+    {'left': 1333, 'bottom': 6, 'width': 129, 'height': 236, 'offset_x': 13.0},
+    {'left': 1558, 'bottom': 4, 'width': 101, 'height': 239, 'offset_x': 11.0},
+    {'left': 1751, 'bottom': 3, 'width': 111, 'height': 238, 'offset_x': -4.0},
+    {'left': 1937, 'bottom': 8, 'width': 149, 'height': 232, 'offset_x': -12.0}
+]
+
 running = True
 
 def check_events():
@@ -84,5 +98,19 @@ def play_walk():
         walk_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
         update_canvas()
         delay(0.09)
+
+def play_run():
+    global running
+    for f in RUN_FRAMES:
+        check_events()
+        if not running:
+            return
+        clear_canvas()
+        draw_x = CENTER_X + int(f['offset_x'] * SCALE)
+        draw_w = int(f['width'] * SCALE)
+        draw_h = int(f['height'] * SCALE)
+        run_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
+        update_canvas()
+        delay(0.06)
 
 close_canvas()
