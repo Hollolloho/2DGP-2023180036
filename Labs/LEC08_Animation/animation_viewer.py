@@ -43,4 +43,18 @@ def check_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
 
+def play_idle():
+    global running
+    for f in IDLE_FRAMES:
+        check_events()
+        if not running:
+            return
+        clear_canvas()
+        draw_x = CENTER_X + int(f['offset_x'] * SCALE)
+        draw_w = int(f['width'] * SCALE)
+        draw_h = int(f['height'] * SCALE)
+        idle_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
+        update_canvas()
+        delay(0.08)
+
 close_canvas()
