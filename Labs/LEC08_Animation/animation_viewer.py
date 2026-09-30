@@ -14,4 +14,16 @@ CENTER_Y = SCREEN_HEIGHT // 2
 SCALE = 1.6
 
 open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
+
+running = True
+
+def check_events():
+    global running
+    events = get_events()
+    for event in events:
+        if event.type == SDL_QUIT:
+            running = False
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
+            running = False
+
 close_canvas()
