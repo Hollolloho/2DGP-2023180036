@@ -15,10 +15,11 @@ SCALE = 1.6
 
 open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
 
-# IDLE 대기 스프라이트 시트 로드
+# 스프라이트 시트 개별 로드
 idle_sheet = load_image('_spritesheet_IDLE.png')
+walk_sheet = load_image('_spritesheet_WALK.png')
 
-# IDLE 대기 프레임 데이터 (10프레임)
+# IDLE 대기 프레임 데이터
 IDLE_FRAMES = [
     {'left': 2, 'bottom': 0, 'width': 92, 'height': 239, 'offset_x': -1.0},
     {'left': 100, 'bottom': 0, 'width': 93, 'height': 240, 'offset_x': -0.5},
