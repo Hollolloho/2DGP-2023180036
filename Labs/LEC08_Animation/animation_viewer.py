@@ -101,6 +101,14 @@ def check_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
 
+def pause_one_second():
+    global running
+    for _ in range(20):
+        check_events()
+        if not running:
+            return
+        delay(0.05)
+
 def play_idle():
     global running
     for _ in range(5):
@@ -115,6 +123,7 @@ def play_idle():
             idle_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
             update_canvas()
             delay(0.08)
+    pause_one_second()
 
 def play_walk():
     global running
@@ -130,6 +139,7 @@ def play_walk():
             walk_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
             update_canvas()
             delay(0.09)
+    pause_one_second()
 
 def play_run():
     global running
@@ -145,6 +155,7 @@ def play_run():
             run_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
             update_canvas()
             delay(0.06)
+    pause_one_second()
 
 def play_attack():
     global running
@@ -160,6 +171,7 @@ def play_attack():
             attack_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
             update_canvas()
             delay(0.07)
+    pause_one_second()
 
 def play_jump():
     global running
@@ -175,5 +187,6 @@ def play_jump():
             jump_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
             update_canvas()
             delay(0.08)
+    pause_one_second()
 
 close_canvas()
