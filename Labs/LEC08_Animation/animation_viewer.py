@@ -15,6 +15,9 @@ SCALE = 1.6
 
 open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
 
+# IDLE 대기 스프라이트 시트 로드
+idle_sheet = load_image('_spritesheet_IDLE.png')
+
 running = True
 
 def check_events():
