@@ -189,4 +189,12 @@ def play_jump():
             delay(0.08)
     pause_one_second()
 
+# 모든 애니메이션 순차 무한 반복
+while running:
+    play_idle()
+    play_walk()
+    play_run()
+    play_attack()
+    play_jump()
+
 close_canvas()
