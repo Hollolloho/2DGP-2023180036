@@ -18,6 +18,7 @@ open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
 # 스프라이트 시트 개별 로드
 idle_sheet = load_image('_spritesheet_IDLE.png')
 walk_sheet = load_image('_spritesheet_WALK.png')
+run_sheet = load_image('_spritesheet_RUN.png')
 
 # IDLE 대기 프레임 데이터
 IDLE_FRAMES = [
@@ -33,7 +34,7 @@ IDLE_FRAMES = [
     {'left': 884, 'bottom': 0, 'width': 93, 'height': 240, 'offset_x': -0.5}
 ]
 
-# WALK 걷기 프레임 데이터 (8프레임)
+# WALK 걷기 프레임 데이터
 WALK_FRAMES = [
     {'left': 0, 'bottom': 1, 'width': 106, 'height': 239, 'offset_x': -1.5},
     {'left': 117, 'bottom': 0, 'width': 89, 'height': 242, 'offset_x': -2.0},
