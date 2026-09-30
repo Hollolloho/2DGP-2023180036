@@ -20,6 +20,7 @@ idle_sheet = load_image('_spritesheet_IDLE.png')
 walk_sheet = load_image('_spritesheet_WALK.png')
 run_sheet = load_image('_spritesheet_RUN.png')
 attack_sheet = load_image('_spritesheet_ATTACK.png')
+jump_sheet = load_image('_spritesheet_JUMP.png')
 
 # IDLE 대기 프레임 데이터
 IDLE_FRAMES = [
@@ -61,7 +62,7 @@ RUN_FRAMES = [
     {'left': 1937, 'bottom': 8, 'width': 149, 'height': 232, 'offset_x': -12.0}
 ]
 
-# ATTACK 공격 프레임 데이터 (10프레임)
+# ATTACK 공격 프레임 데이터
 ATTACK_FRAMES = [
     {'left': 23, 'bottom': 2, 'width': 104, 'height': 219, 'offset_x': -30.0},
     {'left': 218, 'bottom': 0, 'width': 124, 'height': 227, 'offset_x': -35.0},
