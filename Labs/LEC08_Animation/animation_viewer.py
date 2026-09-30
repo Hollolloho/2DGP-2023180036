@@ -76,7 +76,7 @@ ATTACK_FRAMES = [
     {'left': 1912, 'bottom': 1, 'width': 112, 'height': 224, 'offset_x': -27.0}
 ]
 
-# JUMP 점프 프레임 데이터 (10프레임)
+# JUMP 점프 프레임 데이터
 JUMP_FRAMES = [
     {'left': 28, 'bottom': 0, 'width': 92, 'height': 243, 'offset_x': -12.0},
     {'left': 215, 'bottom': 1, 'width': 76, 'height': 237, 'offset_x': -5.0},
@@ -103,72 +103,77 @@ def check_events():
 
 def play_idle():
     global running
-    for f in IDLE_FRAMES:
-        check_events()
-        if not running:
-            return
-        clear_canvas()
-        draw_x = CENTER_X + int(f['offset_x'] * SCALE)
-        draw_w = int(f['width'] * SCALE)
-        draw_h = int(f['height'] * SCALE)
-        idle_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
-        update_canvas()
-        delay(0.08)
+    for _ in range(5):
+        for f in IDLE_FRAMES:
+            check_events()
+            if not running:
+                return
+            clear_canvas()
+            draw_x = CENTER_X + int(f['offset_x'] * SCALE)
+            draw_w = int(f['width'] * SCALE)
+            draw_h = int(f['height'] * SCALE)
+            idle_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
+            update_canvas()
+            delay(0.08)
 
 def play_walk():
     global running
-    for f in WALK_FRAMES:
-        check_events()
-        if not running:
-            return
-        clear_canvas()
-        draw_x = CENTER_X + int(f['offset_x'] * SCALE)
-        draw_w = int(f['width'] * SCALE)
-        draw_h = int(f['height'] * SCALE)
-        walk_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
-        update_canvas()
-        delay(0.09)
+    for _ in range(5):
+        for f in WALK_FRAMES:
+            check_events()
+            if not running:
+                return
+            clear_canvas()
+            draw_x = CENTER_X + int(f['offset_x'] * SCALE)
+            draw_w = int(f['width'] * SCALE)
+            draw_h = int(f['height'] * SCALE)
+            walk_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
+            update_canvas()
+            delay(0.09)
 
 def play_run():
     global running
-    for f in RUN_FRAMES:
-        check_events()
-        if not running:
-            return
-        clear_canvas()
-        draw_x = CENTER_X + int(f['offset_x'] * SCALE)
-        draw_w = int(f['width'] * SCALE)
-        draw_h = int(f['height'] * SCALE)
-        run_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
-        update_canvas()
-        delay(0.06)
+    for _ in range(5):
+        for f in RUN_FRAMES:
+            check_events()
+            if not running:
+                return
+            clear_canvas()
+            draw_x = CENTER_X + int(f['offset_x'] * SCALE)
+            draw_w = int(f['width'] * SCALE)
+            draw_h = int(f['height'] * SCALE)
+            run_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
+            update_canvas()
+            delay(0.06)
 
 def play_attack():
     global running
-    for f in ATTACK_FRAMES:
-        check_events()
-        if not running:
-            return
-        clear_canvas()
-        draw_x = CENTER_X + int(f['offset_x'] * SCALE)
-        draw_w = int(f['width'] * SCALE)
-        draw_h = int(f['height'] * SCALE)
-        attack_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
-        update_canvas()
-        delay(0.07)
+    for _ in range(5):
+        for f in ATTACK_FRAMES:
+            check_events()
+            if not running:
+                return
+            clear_canvas()
+            draw_x = CENTER_X + int(f['offset_x'] * SCALE)
+            draw_w = int(f['width'] * SCALE)
+            draw_h = int(f['height'] * SCALE)
+            attack_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
+            update_canvas()
+            delay(0.07)
 
 def play_jump():
     global running
-    for f in JUMP_FRAMES:
-        check_events()
-        if not running:
-            return
-        clear_canvas()
-        draw_x = CENTER_X + int(f['offset_x'] * SCALE)
-        draw_w = int(f['width'] * SCALE)
-        draw_h = int(f['height'] * SCALE)
-        jump_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
-        update_canvas()
-        delay(0.08)
+    for _ in range(5):
+        for f in JUMP_FRAMES:
+            check_events()
+            if not running:
+                return
+            clear_canvas()
+            draw_x = CENTER_X + int(f['offset_x'] * SCALE)
+            draw_w = int(f['width'] * SCALE)
+            draw_h = int(f['height'] * SCALE)
+            jump_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
+            update_canvas()
+            delay(0.08)
 
 close_canvas()
