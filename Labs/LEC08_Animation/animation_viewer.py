@@ -19,6 +19,7 @@ open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
 idle_sheet = load_image('_spritesheet_IDLE.png')
 walk_sheet = load_image('_spritesheet_WALK.png')
 run_sheet = load_image('_spritesheet_RUN.png')
+attack_sheet = load_image('_spritesheet_ATTACK.png')
 
 # IDLE 대기 프레임 데이터
 IDLE_FRAMES = [
@@ -46,7 +47,7 @@ WALK_FRAMES = [
     {'left': 780, 'bottom': 1, 'width': 82, 'height': 238, 'offset_x': 3.5}
 ]
 
-# RUN 달리기 프레임 데이터 (10프레임)
+# RUN 달리기 프레임 데이터
 RUN_FRAMES = [
     {'left': 1, 'bottom': 5, 'width': 197, 'height': 233, 'offset_x': -7.0},
     {'left': 253, 'bottom': 0, 'width': 118, 'height': 245, 'offset_x': -7.5},
