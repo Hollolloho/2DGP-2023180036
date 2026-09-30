@@ -70,4 +70,18 @@ def play_idle():
         update_canvas()
         delay(0.08)
 
+def play_walk():
+    global running
+    for f in WALK_FRAMES:
+        check_events()
+        if not running:
+            return
+        clear_canvas()
+        draw_x = CENTER_X + int(f['offset_x'] * SCALE)
+        draw_w = int(f['width'] * SCALE)
+        draw_h = int(f['height'] * SCALE)
+        walk_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
+        update_canvas()
+        delay(0.09)
+
 close_canvas()
