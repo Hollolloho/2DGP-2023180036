@@ -61,6 +61,20 @@ RUN_FRAMES = [
     {'left': 1937, 'bottom': 8, 'width': 149, 'height': 232, 'offset_x': -12.0}
 ]
 
+# ATTACK 공격 프레임 데이터 (10프레임)
+ATTACK_FRAMES = [
+    {'left': 23, 'bottom': 2, 'width': 104, 'height': 219, 'offset_x': -30.0},
+    {'left': 218, 'bottom': 0, 'width': 124, 'height': 227, 'offset_x': -35.0},
+    {'left': 440, 'bottom': 0, 'width': 120, 'height': 232, 'offset_x': -25.0},
+    {'left': 645, 'bottom': 1, 'width': 189, 'height': 229, 'offset_x': 4.5},
+    {'left': 879, 'bottom': 2, 'width': 171, 'height': 234, 'offset_x': 19.5},
+    {'left': 1082, 'bottom': 2, 'width': 125, 'height': 240, 'offset_x': -10.5},
+    {'left': 1281, 'bottom': 2, 'width': 133, 'height': 231, 'offset_x': -17.5},
+    {'left': 1474, 'bottom': 2, 'width': 144, 'height': 224, 'offset_x': -29.0},
+    {'left': 1699, 'bottom': 2, 'width': 122, 'height': 225, 'offset_x': -25.0},
+    {'left': 1912, 'bottom': 1, 'width': 112, 'height': 224, 'offset_x': -27.0}
+]
+
 running = True
 
 def check_events():
@@ -113,5 +127,19 @@ def play_run():
         run_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
         update_canvas()
         delay(0.06)
+
+def play_attack():
+    global running
+    for f in ATTACK_FRAMES:
+        check_events()
+        if not running:
+            return
+        clear_canvas()
+        draw_x = CENTER_X + int(f['offset_x'] * SCALE)
+        draw_w = int(f['width'] * SCALE)
+        draw_h = int(f['height'] * SCALE)
+        attack_sheet.clip_draw(f['left'], f['bottom'], f['width'], f['height'], draw_x, CENTER_Y, draw_w, draw_h)
+        update_canvas()
+        delay(0.07)
 
 close_canvas()
