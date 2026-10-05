@@ -32,6 +32,10 @@ ANIMATION_ROWS = (
 )
 
 
+def sprite_path():
+    return Path(__file__).with_name("sonic-sprite.png")
+
+
 def build_animations():
     return [
         {
@@ -86,7 +90,7 @@ def draw_frame(sheet, frame):
 
 
 def main():
-    image_path = Path(__file__).with_name("sonic-sprite.png")
+    image_path = sprite_path()
     if not image_path.is_file():
         raise FileNotFoundError(f"Sprite sheet not found: {image_path}")
 
