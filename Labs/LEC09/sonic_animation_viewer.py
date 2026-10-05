@@ -58,6 +58,13 @@ def validate_animations(animations):
                 raise ValueError(f"Frame is outside the sprite sheet: {animation['name']}")
 
 
+def validate_display_bounds():
+    if not DISPLAY_MIN_X < CENTER_X < DISPLAY_MAX_X:
+        raise ValueError("Character center X is outside the display bounds.")
+    if not DISPLAY_MIN_Y < CENTER_Y < DISPLAY_MAX_Y:
+        raise ValueError("Character center Y is outside the display bounds.")
+
+
 def load_sprite_sheet(image_path):
     if not image_path.is_file():
         raise FileNotFoundError(f"Sprite sheet not found: {image_path}")
@@ -138,6 +145,7 @@ def main():
     image_path = sprite_path()
     animations = build_animations()
     validate_animations(animations)
+    validate_display_bounds()
     open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 
     try:
