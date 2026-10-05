@@ -61,3 +61,25 @@ def handle_events():
         if event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             return False
     return True
+
+
+def draw_frame(sheet, frame):
+    source_x, source_y, source_width, source_height = frame
+    scale = min(
+        (DISPLAY_MAX_X - DISPLAY_MIN_X) / source_width,
+        (DISPLAY_MAX_Y - DISPLAY_MIN_Y) / source_height,
+    )
+    draw_width = int(source_width * scale)
+    draw_height = int(source_height * scale)
+    sheet.clip_composite_draw(
+        source_x,
+        source_y,
+        source_width,
+        source_height,
+        0,
+        "",
+        CENTER_X,
+        CENTER_Y,
+        draw_width,
+        draw_height,
+    )
