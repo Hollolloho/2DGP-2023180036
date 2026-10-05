@@ -99,6 +99,7 @@ def main():
         running = True
         action_index = 0
         frame_index = 0
+        repeat_count = 0
 
         while running:
             running = handle_events()
@@ -111,7 +112,23 @@ def main():
             update_canvas()
             delay(FRAME_INTERVAL)
 
-            frame_index = (frame_index + 1) % len(animations[action_index]["frames"])
+            frame_index += 1
+            if frame_index < len(animations[action_index]["frames"]):
+                continue
+
+            frame_index = 0
+            repeat_count += 1
+            if repeat_count < ACTION_REPEAT_COUNT:
+                continue
+
+            repeat_count = 0
+            pause_elapsed = 0.0
+            while running and pause_elapsed < ACTION_PAUSE:
+                running = handle_events()
+                delay(FRAME_INTERVAL)
+                pause_elapsed += FRAME_INTERVAL
+
+            action_index = (action_index + 1) % len(animations)
     finally:
         close_canvas()
 
