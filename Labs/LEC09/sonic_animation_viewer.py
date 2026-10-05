@@ -11,6 +11,7 @@ DISPLAY_MIN_Y, DISPLAY_MAX_Y = 200, 600
 FRAME_INTERVAL = 0.05
 ACTION_REPEAT_COUNT = 5
 ACTION_PAUSE = 1.0
+DISPLAY_SCALE = 0.7
 
 FRAME_WIDTH = 39
 FRAME_STEP_X = 40
@@ -128,7 +129,7 @@ def draw_frame(sheet, frame):
     scale = min(
         (DISPLAY_MAX_X - DISPLAY_MIN_X) / source_width,
         (DISPLAY_MAX_Y - DISPLAY_MIN_Y) / source_height,
-    )
+    ) * DISPLAY_SCALE
     draw_width = int(source_width * scale)
     draw_height = int(source_height * scale)
     sheet.clip_composite_draw(
