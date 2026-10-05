@@ -13,22 +13,22 @@ ACTION_REPEAT_COUNT = 5
 ACTION_PAUSE = 1.0
 
 FRAME_WIDTH = 39
-FRAME_HEIGHT = 50
 FRAME_STEP_X = 40
 SPRITE_WIDTH = 399
 SPRITE_HEIGHT = 525
 
 # Coordinates use pico2d's bottom-left origin.
 ANIMATION_ROWS = (
-    ("action_01", 440, 10),
-    ("action_02", 390, 10),
-    ("action_03", 340, 6),
-    ("action_04", 290, 8),
-    ("action_05", 240, 6),
-    ("action_06", 190, 8),
-    ("action_07", 140, 8),
-    ("action_08", 90, 8),
-    ("action_09", 40, 6),
+    ("action_01", 448, 38, 10),
+    ("action_02", 407, 39, 10),
+    ("action_03", 362, 42, 6),
+    ("action_04", 325, 33, 9),
+    ("action_05", 292, 27, 6),
+    ("action_06", 251, 36, 6),
+    ("action_07", 208, 34, 6),
+    ("action_08", 155, 44, 8),
+    ("action_09", 109, 39, 8),
+    ("action_10", 57, 42, 4),
 )
 
 
@@ -41,11 +41,11 @@ def build_animations():
         {
             "name": name,
             "frames": [
-                (index * FRAME_STEP_X, source_y, FRAME_WIDTH, FRAME_HEIGHT)
+                (index * FRAME_STEP_X, source_y, FRAME_WIDTH, frame_height)
                 for index in range(frame_count)
             ],
         }
-        for name, source_y, frame_count in ANIMATION_ROWS
+        for name, source_y, frame_height, frame_count in ANIMATION_ROWS
     ]
 
 
