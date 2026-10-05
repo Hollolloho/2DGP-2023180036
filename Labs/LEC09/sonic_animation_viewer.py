@@ -52,3 +52,12 @@ def validate_animations(animations):
         for left, bottom, width, height in animation["frames"]:
             if left < 0 or bottom < 0 or left + width > SPRITE_WIDTH or bottom + height > SPRITE_HEIGHT:
                 raise ValueError(f"Frame is outside the sprite sheet: {animation['name']}")
+
+
+def handle_events():
+    for event in get_events():
+        if event.type == SDL_QUIT:
+            return False
+        if event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
+            return False
+    return True
