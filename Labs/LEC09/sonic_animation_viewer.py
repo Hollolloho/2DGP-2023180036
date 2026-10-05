@@ -58,6 +58,12 @@ def validate_animations(animations):
                 raise ValueError(f"Frame is outside the sprite sheet: {animation['name']}")
 
 
+def load_sprite_sheet(image_path):
+    if not image_path.is_file():
+        raise FileNotFoundError(f"Sprite sheet not found: {image_path}")
+    return load_image(str(image_path))
+
+
 def handle_events():
     for event in get_events():
         if event.type == SDL_QUIT:
@@ -91,15 +97,12 @@ def draw_frame(sheet, frame):
 
 def main():
     image_path = sprite_path()
-    if not image_path.is_file():
-        raise FileNotFoundError(f"Sprite sheet not found: {image_path}")
-
     animations = build_animations()
     validate_animations(animations)
     open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 
     try:
-        sheet = load_image(str(image_path))
+        sheet = load_sprite_sheet(image_path)
         running = True
         action_index = 0
         frame_index = 0
