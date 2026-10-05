@@ -97,6 +97,12 @@ def pause_between_actions(state):
         elapsed += FRAME_INTERVAL
 
 
+def render_frame(sheet, frame):
+    clear_canvas()
+    draw_frame(sheet, frame)
+    update_canvas()
+
+
 def handle_events():
     for event in get_events():
         if event.type == SDL_QUIT:
@@ -146,9 +152,7 @@ def main():
             action_index = state["action_index"]
             frame_index = state["frame_index"]
             frame = current_frame(animations, state)
-            clear_canvas()
-            draw_frame(sheet, frame)
-            update_canvas()
+            render_frame(sheet, frame)
             delay(FRAME_INTERVAL)
 
             action_finished = advance_frame(animations, state)
