@@ -78,6 +78,17 @@ def current_frame(animations, state):
     return animation["frames"][state["frame_index"]]
 
 
+def advance_frame(animations, state):
+    frame_count = len(animations[state["action_index"]]["frames"])
+    state["frame_index"] += 1
+    if state["frame_index"] < frame_count:
+        return False
+
+    state["frame_index"] = 0
+    state["repeat_count"] += 1
+    return state["repeat_count"] >= ACTION_REPEAT_COUNT
+
+
 def handle_events():
     for event in get_events():
         if event.type == SDL_QUIT:
@@ -132,15 +143,8 @@ def main():
             update_canvas()
             delay(FRAME_INTERVAL)
 
-            frame_index += 1
-            if frame_index < len(animations[action_index]["frames"]):
-                state["frame_index"] = frame_index
-                continue
-
-            frame_index = 0
-            state["repeat_count"] += 1
-            state["frame_index"] = frame_index
-            if state["repeat_count"] < ACTION_REPEAT_COUNT:
+            action_finished = advance_frame(animations, state)
+            if not action_finished:
                 continue
 
             state["repeat_count"] = 0
