@@ -96,6 +96,22 @@ def main():
 
     try:
         sheet = load_image(str(image_path))
+        running = True
+        action_index = 0
+        frame_index = 0
+
+        while running:
+            running = handle_events()
+            if not running:
+                break
+
+            frame = animations[action_index]["frames"][frame_index]
+            clear_canvas()
+            draw_frame(sheet, frame)
+            update_canvas()
+            delay(FRAME_INTERVAL)
+
+            frame_index = (frame_index + 1) % len(animations[action_index]["frames"])
     finally:
         close_canvas()
 
