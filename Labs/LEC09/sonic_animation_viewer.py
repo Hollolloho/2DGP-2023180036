@@ -83,3 +83,22 @@ def draw_frame(sheet, frame):
         draw_width,
         draw_height,
     )
+
+
+def main():
+    image_path = Path(__file__).with_name("sonic-sprite.png")
+    if not image_path.is_file():
+        raise FileNotFoundError(f"Sprite sheet not found: {image_path}")
+
+    animations = build_animations()
+    validate_animations(animations)
+    open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+
+    try:
+        sheet = load_image(str(image_path))
+    finally:
+        close_canvas()
+
+
+if __name__ == "__main__":
+    main()
