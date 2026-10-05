@@ -64,6 +64,15 @@ def load_sprite_sheet(image_path):
     return load_image(str(image_path))
 
 
+def create_playback_state():
+    return {
+        "running": True,
+        "action_index": 0,
+        "frame_index": 0,
+        "repeat_count": 0,
+    }
+
+
 def handle_events():
     for event in get_events():
         if event.type == SDL_QUIT:
@@ -103,16 +112,15 @@ def main():
 
     try:
         sheet = load_sprite_sheet(image_path)
-        running = True
-        action_index = 0
-        frame_index = 0
-        repeat_count = 0
+        state = create_playback_state()
 
-        while running:
-            running = handle_events()
-            if not running:
+        while state["running"]:
+            state["running"] = handle_events()
+            if not state["running"]:
                 break
 
+            action_index = state["action_index"]
+            frame_index = state["frame_index"]
             frame = animations[action_index]["frames"][frame_index]
             clear_canvas()
             draw_frame(sheet, frame)
@@ -121,21 +129,23 @@ def main():
 
             frame_index += 1
             if frame_index < len(animations[action_index]["frames"]):
+                state["frame_index"] = frame_index
                 continue
 
             frame_index = 0
-            repeat_count += 1
-            if repeat_count < ACTION_REPEAT_COUNT:
+            state["repeat_count"] += 1
+            state["frame_index"] = frame_index
+            if state["repeat_count"] < ACTION_REPEAT_COUNT:
                 continue
 
-            repeat_count = 0
+            state["repeat_count"] = 0
             pause_elapsed = 0.0
-            while running and pause_elapsed < ACTION_PAUSE:
-                running = handle_events()
+            while state["running"] and pause_elapsed < ACTION_PAUSE:
+                state["running"] = handle_events()
                 delay(FRAME_INTERVAL)
                 pause_elapsed += FRAME_INTERVAL
 
-            action_index = (action_index + 1) % len(animations)
+            state["action_index"] = (action_index + 1) % len(animations)
     finally:
         close_canvas()
 
