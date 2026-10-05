@@ -20,16 +20,16 @@ SPRITE_HEIGHT = 525
 
 # Coordinates use pico2d's bottom-left origin.
 ANIMATION_ROWS = (
-    ("action_01", 448, 38, 10),
-    ("action_02", 407, 39, 10),
-    ("action_03", 362, 42, 6),
-    ("action_04", 325, 33, 9),
-    ("action_05", 292, 27, 6),
-    ("action_06", 251, 36, 6),
-    ("action_07", 208, 34, 6),
-    ("action_08", 155, 44, 8),
-    ("action_09", 109, 39, 8),
-    ("action_10", 57, 42, 4),
+    ("action_01", 448, 38, 10, (6, 0)),
+    ("action_02", 407, 39, 10, (6, 0)),
+    ("action_03", 362, 42, 6, (0, 4)),
+    ("action_04", 325, 33, 9, (5, 0)),
+    ("action_05", 292, 27, 6, (5, 0)),
+    ("action_06", 251, 36, 6, (5, 0)),
+    ("action_07", 208, 34, 6, (0, 0)),
+    ("action_08", 155, 44, 8, (4, 0)),
+    ("action_09", 109, 39, 8, (4, 0)),
+    ("action_10", 57, 42, 4, (0, 0)),
 )
 
 
@@ -45,12 +45,13 @@ def build_animations():
     return [
         {
             "name": name,
+            "movement": movement,
             "frames": [
                 frame_rect(index, source_y, frame_height)
                 for index in range(frame_count)
             ],
         }
-        for name, source_y, frame_height, frame_count in ANIMATION_ROWS
+        for name, source_y, frame_height, frame_count, movement in ANIMATION_ROWS
     ]
 
 
@@ -82,6 +83,8 @@ def create_playback_state():
         "action_index": 0,
         "frame_index": 0,
         "repeat_count": 0,
+        "x": CENTER_X,
+        "y": CENTER_Y,
     }
 
 
@@ -109,9 +112,20 @@ def pause_between_actions(state):
         elapsed += FRAME_INTERVAL
 
 
-def render_frame(sheet, frame):
+def advance_position(animation, state):
+    move_x, move_y = animation["movement"]
+    state["x"] += move_x
+    state["y"] += move_y
+    if state["x"] > DISPLAY_MAX_X:
+        state["x"] = DISPLAY_MIN_X
+    if state["x"] < DISPLAY_MIN_X:
+        state["x"] = DISPLAY_MAX_X
+    state["y"] = max(DISPLAY_MIN_Y, min(DISPLAY_MAX_Y, state["y"]))
+
+
+def render_frame(sheet, frame, center_x, center_y):
     clear_canvas()
-    draw_frame(sheet, frame)
+    draw_frame(sheet, frame, center_x, center_y)
     update_canvas()
 
 
@@ -124,7 +138,7 @@ def handle_events():
     return True
 
 
-def draw_frame(sheet, frame):
+def draw_frame(sheet, frame, center_x, center_y):
     source_x, source_y, source_width, source_height = frame
     scale = min(
         (DISPLAY_MAX_X - DISPLAY_MIN_X) / source_width,
@@ -139,8 +153,8 @@ def draw_frame(sheet, frame):
         source_height,
         0,
         "",
-        CENTER_X,
-        CENTER_Y,
+        center_x,
+        center_y,
         draw_width,
         draw_height,
     )
@@ -163,10 +177,11 @@ def main():
                 break
 
             action_index = state["action_index"]
-            frame_index = state["frame_index"]
+            animation = animations[action_index]
             frame = current_frame(animations, state)
-            render_frame(sheet, frame)
+            render_frame(sheet, frame, state["x"], state["y"])
             delay(FRAME_INTERVAL)
+            advance_position(animation, state)
 
             action_finished = advance_frame(animations, state)
             if not action_finished:
