@@ -89,6 +89,14 @@ def advance_frame(animations, state):
     return state["repeat_count"] >= ACTION_REPEAT_COUNT
 
 
+def pause_between_actions(state):
+    elapsed = 0.0
+    while state["running"] and elapsed < ACTION_PAUSE:
+        state["running"] = handle_events()
+        delay(FRAME_INTERVAL)
+        elapsed += FRAME_INTERVAL
+
+
 def handle_events():
     for event in get_events():
         if event.type == SDL_QUIT:
@@ -148,11 +156,7 @@ def main():
                 continue
 
             state["repeat_count"] = 0
-            pause_elapsed = 0.0
-            while state["running"] and pause_elapsed < ACTION_PAUSE:
-                state["running"] = handle_events()
-                delay(FRAME_INTERVAL)
-                pause_elapsed += FRAME_INTERVAL
+            pause_between_actions(state)
 
             state["action_index"] = (action_index + 1) % len(animations)
     finally:
