@@ -177,11 +177,10 @@ def main():
                 break
 
             action_index = state["action_index"]
-            animation = animations[action_index]
+            frame_index = state["frame_index"]
             frame = current_frame(animations, state)
             render_frame(sheet, frame, state["x"], state["y"])
             delay(FRAME_INTERVAL)
-            advance_position(animation, state)
 
             action_finished = advance_frame(animations, state)
             if not action_finished:
