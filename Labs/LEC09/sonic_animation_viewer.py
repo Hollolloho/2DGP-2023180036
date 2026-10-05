@@ -36,12 +36,16 @@ def sprite_path():
     return Path(__file__).with_name("sonic-sprite.png")
 
 
+def frame_rect(index, source_y, frame_height):
+    return index * FRAME_STEP_X, source_y, FRAME_WIDTH, frame_height
+
+
 def build_animations():
     return [
         {
             "name": name,
             "frames": [
-                (index * FRAME_STEP_X, source_y, FRAME_WIDTH, frame_height)
+                frame_rect(index, source_y, frame_height)
                 for index in range(frame_count)
             ],
         }
