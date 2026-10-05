@@ -73,6 +73,11 @@ def create_playback_state():
     }
 
 
+def current_frame(animations, state):
+    animation = animations[state["action_index"]]
+    return animation["frames"][state["frame_index"]]
+
+
 def handle_events():
     for event in get_events():
         if event.type == SDL_QUIT:
@@ -121,7 +126,7 @@ def main():
 
             action_index = state["action_index"]
             frame_index = state["frame_index"]
-            frame = animations[action_index]["frames"][frame_index]
+            frame = current_frame(animations, state)
             clear_canvas()
             draw_frame(sheet, frame)
             update_canvas()
