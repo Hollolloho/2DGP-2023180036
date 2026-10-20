@@ -1,16 +1,28 @@
 from pico2d import *
+from pathlib import Path
+
+image_dir = Path(__file__).resolve().parent
 
 open_canvas()
-grass = load_image('grass.png')
-character = load_image('animation_sheet.png')
+grass = load_image(str(image_dir / 'grass.png'))
+character = load_image(str(image_dir / 'animation_sheet.png'))
 
 
 # fill here
 
-
+running = True  #루프 컨트롤 변수
 
 def handle_events():
-    # fill here
+    global running
+
+    events = get_events()
+    if events:
+        for event in events:
+            if event.type == SDL_QUIT:
+                running = False
+
+            if event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
+                running = False
     pass
 
 
@@ -24,7 +36,9 @@ for x in range(0, 800, 5):
 
     # fill here
 
-
+    handle_events()
+    if not running:
+        break
 
     frame = (frame + 1) % 8
     delay(0.05)
